@@ -1,16 +1,21 @@
 package arvore;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTree {
 	Node root;
 	int quantNode;
 	public int i;
 	public boolean b;
 	
-//	public BinaryTree(List<Integer> nums) {
-//        for (Integer num : nums) {
-//            inserir(this.root, num);
-//        }
-//    }
+	public BinaryTree(List<Integer> listan) {
+        for (Integer n : listan) {
+            inserir(this.root, n);
+        }
+        this.calcularAltura(this.root);
+        this.posicaoSimetricaRecursiva(this.root, 0);
+    }
 	
 	public void ordemSimetricaRecursiva() {
 		ordemSimetricaRecursiva(this.root);
@@ -234,6 +239,7 @@ public class BinaryTree {
 	public void inserir(Node node, int valor) {
         if (this.root == null) {
             this.root = new Node(valor);
+            System.out.printf("%d adicionado\n", valor);
             return;
         }
 
