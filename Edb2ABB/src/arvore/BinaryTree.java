@@ -51,6 +51,7 @@ public class BinaryTree {
 		}
 		this.quantNode = cont;
 		
+		this.b = false;
 		return cont;
 	}
 	
@@ -125,7 +126,7 @@ public class BinaryTree {
 	}
 	
 	public double media(int x) {
-		Node aux = this.Busca(this.root, x, 0);
+		Node aux = this.BuscaMedia(this.root, x, 0);
 		double media = 0;
 		media = getNodeSoma(aux, 0);
 		media = media/this.i;
@@ -310,6 +311,38 @@ public class BinaryTree {
 			}
 			if(f == 0) {
 				aux = Busca(node, valor, f);
+			}
+		}
+		return aux;
+	}
+	
+	public Node BuscaMedia(Node node, int valor, int f) {
+		Node aux = new Node();
+		if(node != null) {
+			if(node.data == valor) {
+				f = 1;
+				return node;
+			}
+			else if(valor < node.data) {
+				if(node.left == null) {
+					f = 2;
+					return node.left;
+				}
+				else {
+					node = node.left;
+				}
+			}
+			else if(valor > node.data) {
+				if(node.right == null) {
+					f = 3;
+					return node.right;
+				}
+				else {
+					node = node.right;
+				}
+			}
+			if(f == 0) {
+				aux = BuscaMedia(node, valor, f);
 			}
 		}
 		return aux;
