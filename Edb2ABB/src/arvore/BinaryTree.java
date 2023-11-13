@@ -7,6 +7,7 @@ public class BinaryTree {
 	Node root;
 	int quantNode;
 	public int i;
+	public int j = 0;
 	public boolean b;
 	
 	public BinaryTree(List<Integer> listan) {
@@ -239,7 +240,10 @@ public class BinaryTree {
 	public void inserir(Node node, int valor) {
         if (this.root == null) {
             this.root = new Node(valor);
-            System.out.printf("%d adicionado\n", valor);
+            if(j > 5) {
+            	System.out.printf("%d adicionado\n", valor);
+            }
+            this.j++;
             return;
         }
 
@@ -249,7 +253,10 @@ public class BinaryTree {
             }
             else {
             	node.left = new Node(valor);
-            	System.out.printf("%d adicionado\n", valor);
+            	if(j > 5) {
+            		System.out.printf("%d adicionado\n", valor);
+            	}
+            	this.j++;
             }
             
         } else if (valor > node.data) {
@@ -258,10 +265,13 @@ public class BinaryTree {
             }
             else {
             	node.right = new Node(valor);
-            	System.out.printf("%d adicionado\n", valor);
+            	if(j > 5) {
+            		System.out.printf("%d adicionado\n", valor);
+            	}
+            	this.j++;
             }
         } else {
-            System.out.printf("%d já está na árvore, não pode ser inserido\n", valor);
+            System.out.printf("%d já está na árvore, não pode ser inserido", valor);
             System.out.println();
             return;
         }
@@ -274,11 +284,14 @@ public class BinaryTree {
 		if(node != null) {
 			if(node.data == valor) {
 				f = 1;
+				//consertar
+				System.out.print("Chave encontrada\n");
 				return node;
 			}
 			else if(valor < node.data) {
 				if(node.left == null) {
 					f = 2;
+					System.out.print("Chave não encontrada\n");
 					return node.left;
 				}
 				else {
@@ -288,6 +301,7 @@ public class BinaryTree {
 			else if(valor > node.data) {
 				if(node.right == null) {
 					f = 3;
+					System.out.print("Chave não encontrada\n");
 					return node.right;
 				}
 				else {

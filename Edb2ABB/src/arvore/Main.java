@@ -27,47 +27,19 @@ public class Main {
 		
 		BinaryTree tree = new BinaryTree(initialTreeInt);
 		
-		System.out.print(tree.quantNode + "oi");
-		
-		
-//		BinaryTree tree = new BinaryTree();
-//		tree.root = new Node(32); 
-//		tree.root.left = new Node(13); 
-//		tree.root.left.left = new Node(5);
-//		tree.root.left.right = new Node(20); 
-//		tree.root.right = new Node(41); 
-//		tree.root.right.right = new Node(60); 
-//		tree.inserir(tree.root, 37);
-//		tree.root = new Node(5); 
-//		tree.root.left = new Node(3);
-//		tree.root.right = new Node(8); 
-//		tree.root.right.left = new Node(6);
-//		tree.root.right.right = new Node(9); 
-//		tree.calcularAltura(tree.root);
-//		tree.posicaoSimetricaRecursiva(tree.root, 0);
-		
-//		System.out.print(tree.pre_ordem() + " preordem \n");
-		
-//		System.out.print(tree.media(32) + " media\n");
-		
-//		System.out.print(tree.quantNode + "\n");
-//		System.out.print(tree.mediana() + " mediana\n");
-		
-//		System.out.print(tree.posicao(60) + " posicao\n");
-//		System.out.print(tree.enesimoElemento(6) + " enesimo\n");
-//		System.out.print(tree.root.altura + " altura\n");
-//		System.out.print(tree.ehCheia() + " cheia\n");
-//		System.out.print(tree.ehCompleta() + " completa\n");
-//		tree.imprimirArvore(1);
-//		tree.Deletar(tree.root, 31);
-//		tree.calcularAltura(tree.root);
-//		tree.posicaoSimetricaRecursiva(tree.root, 0);
-//		tree.imprimirArvore(1);
-		
-//		tree.posicaoSimetricaRecursiva(tree.root, 0);
-//		tree.ordemSimetricaRecursiva();
-		
-		
+		for(String linha: comandos) {
+			String[] split = linha.split(" ");
+            String comando = split[0];
+            String argumento = "";
+            
+            try {
+                argumento = split[1];
+            } catch (Exception e) {
+                
+            }
+            
+            entradaComando(comando, argumento, tree);
+		}
 
 	}
 	
@@ -88,5 +60,54 @@ public class Main {
         
         return saida;
 	}
+	
+	private static void entradaComando(String comando, String argumento, BinaryTree tree) {
+        switch (comando) {
+            case "INSIRA":
+                tree.inserir(tree.root, Integer.parseInt(argumento));
+                tree.posicaoSimetricaRecursiva(tree.root, 0);
+                tree.calcularAltura(tree.root);
+                break;
+            case "REMOVA":
+                tree.Deletar(tree.root, Integer.parseInt(argumento));
+                tree.posicaoSimetricaRecursiva(tree.root, 0);
+                tree.calcularAltura(tree.root);
+                break;
+            case "BUSCAR":
+                tree.Busca(tree.root, Integer.parseInt(argumento), 0);
+                break;
+            case "ENESIMO":
+                System.out.println(tree.enesimoElemento(Integer.parseInt(argumento)));
+                break;
+            case "POSICAO":
+            	System.out.println(tree.posicao(Integer.parseInt(argumento)));
+                break;
+            case "MEDIANA":
+            	System.out.println(tree.mediana());
+                break;
+            case "MEDIA":
+            	System.out.println(tree.media(Integer.parseInt(argumento)));
+                break;
+            case "CHEIA":
+            	boolean b = tree.ehCheia();
+            	if(b == true) System.out.println("A árvore é cheia");
+            	else System.out.println("A árvore não é cheia");
+                break;
+            case "COMPLETA":
+            	boolean b2 = tree.ehCompleta();
+            	if(b2 == true) System.out.println("A árvore é completa");
+            	else System.out.println("A árvore não é completa");
+                break;
+            case "PREORDEM":
+            	System.out.println(tree.pre_ordem());
+                break;
+            case "IMPRIMA":
+                tree.imprimirArvore(Integer.parseInt(argumento));
+                break;
+        
+            default:
+                break;
+        }
+    }
 
 }
