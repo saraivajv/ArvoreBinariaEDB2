@@ -17,48 +17,28 @@ Projeto de uma Árvore Binária de Busca em Java
 ## Compilação 💻
 ### <em>Executando com GCC</em>
 <ol>
-<li> Clone o seguinte repositório
-
-    git clone https://github.com/saraivajv/ConcordoProjeto --branch main --single-branch master
+<li> Instale o java e o make
     
-<li> Abra o terminal na pasta clonada e digite
-
-    g++ -o master main.cpp canal.cpp canaltexto.cpp canalvoz.cpp mensagem.cpp servidor.cpp usuario.cpp sistema.cpp
+<li> Instalar o Java:
     
-<li> Agora execute com
+    sudo apt install openjdk-18-jdk
+    
+<li> Instalar o Make:
 
-    ./concordo
+    sudo apt install make
+
+<li> Após clonar o projeto, compile:
+
+    cd src && make
+
+<li> Execute o jar:
+
+    java -jar Edb2ABB.jar <arquivo.valores> <arquivo.comandos>
+
+<li> Entre <> estão os caminhos dos arquivos
 
 </ol>
 
-### <em>Executando com CMake</em>
-
-<ol>
-<li> Clone o seguinte repositório
-
-    git clone https://github.com/saraivajv/ConcordoProjeto--branch main --single-branch master
-    
-<li> Abra o terminal na pasta clonada e digite
-
-    mkdir build
-    cd build
-    
-<li> Execute o CMake
-
-    cmake ..
-    
-<li> Compile com
-
-    make
-    
-<li> Por fim, execute
-
-    ./concordo
-
-</ol>
-
-## Dificuldades
-Vazamento de memória
-
-## Aluno
+## Alunos
+* Gabriel Henrique Ferreira Bessa
 * João Victor Gonçalves de Albuquerque Saraiva
