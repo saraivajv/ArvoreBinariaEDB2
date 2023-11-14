@@ -15,7 +15,7 @@ Projeto de uma Árvore Binária de Busca em Java
 * Imprimir de 2 formas diferentes
 
 ## Compilação 💻
-### <em>Executando com GCC</em>
+### <em>Executando com make</em>
 <ol>
 <li> Instale o java e o make
     
