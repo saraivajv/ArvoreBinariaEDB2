@@ -33,9 +33,7 @@ Projeto de uma Árvore Binária de Busca em Java
 
 <li> Execute o jar:
 
-    java -jar Edb2ABB.jar <arquivo.valores> <arquivo.comandos>
-
-<li> Entre <> estão os caminhos dos arquivos
+    java -jar Edb2ABB.jar
 
 </ol>
 
